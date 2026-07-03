@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { contactLink, primaryNavLinks, projectLinks } from '../data/navigation';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [projectsOpen, setProjectsOpen] = useState(false);
-
-  const projectLinks = [
-    { label: 'Flat', href: '#flat' },
-    { label: 'House', href: '#house' },
-    { label: 'Plot', href: '#plot' },
-    { label: 'Land', href: '#land' },
-    { label: 'Share', href: '#share' },
-  ];
 
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-800/10 bg-slate-950/95 text-white backdrop-blur-xl">
@@ -21,15 +14,11 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
-          <a href="#home" className="text-sm font-medium text-slate-300 transition hover:text-white">
-            Home
-          </a>
-          <a href="#about" className="text-sm font-medium text-slate-300 transition hover:text-white">
-            About
-          </a>
-          <a href="#contact" className="text-sm font-medium text-slate-300 transition hover:text-white">
-            Contact
-          </a>
+          {primaryNavLinks.map((item) => (
+            <a key={item.label} href={item.href} className="text-sm font-medium text-slate-300 transition hover:text-white">
+              {item.label}
+            </a>
+          ))}
 
           <div className="relative">
             <button
@@ -66,20 +55,19 @@ const Navbar = () => {
           Menu
         </button>
 
-        <a
-          href="tel:+8801712345678"
-          className="hidden rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-400 md:inline-flex"
-        >
-          Contact +88 01993-344557
+        <a href={contactLink.href} className="hidden rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-400 md:inline-flex">
+          {contactLink.label}
         </a>
       </div>
 
       {mobileMenuOpen && (
         <div className="border-t border-slate-800/30 bg-slate-950 px-4 py-4 md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-3">
-            <a href="#home" className="text-sm font-medium text-slate-300">Home</a>
-            <a href="#about" className="text-sm font-medium text-slate-300">About</a>
-            <a href="#contact" className="text-sm font-medium text-slate-300">Contact</a>
+            {primaryNavLinks.map((item) => (
+              <a key={item.label} href={item.href} className="text-sm font-medium text-slate-300">
+                {item.label}
+              </a>
+            ))}
             <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-3">
               <p className="mb-2 text-xs uppercase tracking-[0.2em] text-slate-500">Projects</p>
               <div className="grid grid-cols-2 gap-2">
@@ -90,8 +78,8 @@ const Navbar = () => {
                 ))}
               </div>
             </div>
-            <a href="tel:+8801993344557" className="rounded-full bg-emerald-500 px-4 py-3 text-center text-sm font-semibold text-white">
-              Contact +88 01993-344557
+            <a href={contactLink.href} className="rounded-full bg-emerald-500 px-4 py-3 text-center text-sm font-semibold text-white">
+              {contactLink.label}
             </a>
           </div>
         </div>

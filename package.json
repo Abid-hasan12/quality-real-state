@@ -3,10 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://abid-hasan12.github.io/quality-real-state/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "push": "git add . && git commit -m 'update' && git push",
+    "deploy": "gh-pages -f -d dist"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",
@@ -19,6 +22,7 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.45",
     "tailwindcss": "^3.4.10",
-    "vite": "^5.4.2"
+    "vite": "^5.4.2",
+    "gh-pages": "^6.3.0"
   }
 }

@@ -1,14 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { footerLinks, primaryNavLinks } from '../data/navigation';
 
 const Footer = () => {
-  const footerLinks = [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Cookie Policy', href: '#' },
-    { label: 'Sitemap', href: '#' },
-  ];
-
   return (
     <footer className="border-t border-slate-800/10 bg-slate-950 text-slate-300">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -25,10 +18,11 @@ const Footer = () => {
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-slate-100">Quick Links</h3>
             <div className="grid gap-3 text-sm text-slate-400">
-              <a href="#home" className="transition hover:text-white">Home</a>
-              <a href="#about" className="transition hover:text-white">About</a>
-              <a href="#contact" className="transition hover:text-white">Contact</a>
-              <a href="#properties" className="transition hover:text-white">Properties</a>
+              {primaryNavLinks.map((item) => (
+                <a key={item.label} href={item.href} className="transition hover:text-white">
+                  {item.label}
+                </a>
+              ))}
             </div>
           </div>
 

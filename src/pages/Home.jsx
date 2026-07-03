@@ -1,87 +1,86 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+const successStats = [
+  {
+    value: '500+',
+    label: 'Properties Sold',
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+        <path d="M4 10.5 12 4l8 6.5" />
+        <path d="M6.5 9.5V20h11V9.5" />
+        <path d="M10 20v-5h4v5" />
+      </svg>
+    ),
+  },
+  {
+    value: '200+',
+    label: 'Happy Clients',
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+        <path d="M16.5 19a4.5 4.5 0 0 0-9 0" />
+        <circle cx="12" cy="8" r="3.5" />
+        <path d="M18.5 19a3.8 3.8 0 0 0-2.3-3.2" />
+        <path d="M16 4.8a3.5 3.5 0 0 1 0 6.9" />
+      </svg>
+    ),
+  },
+  {
+    value: '15+',
+    label: 'Years of Experience',
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+        <path d="M12 7v5l3 2" />
+        <circle cx="12" cy="12" r="8.5" />
+      </svg>
+    ),
+  },
+];
+
+const socialLinks = [
+  {
+    label: 'Facebook',
+    href: '#',
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+        <path d="M13.5 9H16V6h-2.5C11.57 6 10 7.57 10 9.5V11H8v3h2v7h3v-7h2.3l.7-3H13V9.8c0-.45.35-.8.8-.8Z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Instagram',
+    href: '#',
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    label: 'LinkedIn',
+    href: '#',
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+        <path d="M6.5 8.5A2 2 0 1 1 6.5 4.5a2 2 0 0 1 0 4Zm-1.5 1.5h3v9h-3v-9Zm5 0h2.9v1.2h.04c.4-.75 1.38-1.55 2.84-1.55 3.04 0 3.7 2 3.7 4.6V19h-3v-4.1c0-.98-.02-2.24-1.36-2.24-1.37 0-1.58 1.07-1.58 2.17V19h-3v-9Z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Twitter',
+    href: '#',
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+        <path d="M19.4 7.3c.01.16.01.32.01.49 0 5.02-3.82 10.8-10.8 10.8-2.14 0-4.12-.63-5.79-1.71.3.03.6.04.91.04 1.77 0 3.4-.6 4.7-1.62-1.66-.03-3.05-1.12-3.53-2.61.23.04.46.07.7.07.34 0 .68-.05 1-.13-1.73-.35-3.03-1.87-3.03-3.71v-.05c.51.28 1.1.44 1.72.46a4.1 4.1 0 0 1-1.28-5.46 11.62 11.62 0 0 0 8.44 4.28 4.62 4.62 0 0 1-.1-.94 4.1 4.1 0 0 1 7.09-2.8 8.14 8.14 0 0 0 2.6-1c-.3.92-.92 1.7-1.73 2.19.8-.1 1.57-.31 2.28-.63a8.82 8.82 0 0 1-2.05 2.13Z" />
+      </svg>
+    ),
+  },
+];
+
 const Home = () => {
-  const successStats = [
-    {
-      value: '500+',
-      label: 'Properties Sold',
-      icon: (
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-          <path d="M4 10.5 12 4l8 6.5" />
-          <path d="M6.5 9.5V20h11V9.5" />
-          <path d="M10 20v-5h4v5" />
-        </svg>
-      ),
-    },
-    {
-      value: '200+',
-      label: 'Happy Clients',
-      icon: (
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-          <path d="M16.5 19a4.5 4.5 0 0 0-9 0" />
-          <circle cx="12" cy="8" r="3.5" />
-          <path d="M18.5 19a3.8 3.8 0 0 0-2.3-3.2" />
-          <path d="M16 4.8a3.5 3.5 0 0 1 0 6.9" />
-        </svg>
-      ),
-    },
-    {
-      value: '15+',
-      label: 'Years of Experience',
-      icon: (
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-          <path d="M12 7v5l3 2" />
-          <circle cx="12" cy="12" r="8.5" />
-        </svg>
-      ),
-    },
-  ];
-
-  const socialLinks = [
-    {
-      label: 'Facebook',
-      href: '#',
-      icon: (
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-          <path d="M13.5 9H16V6h-2.5C11.57 6 10 7.57 10 9.5V11H8v3h2v7h3v-7h2.3l.7-3H13V9.8c0-.45.35-.8.8-.8Z" />
-        </svg>
-      ),
-    },
-    {
-      label: 'Instagram',
-      href: '#',
-      icon: (
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-          <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
-          <circle cx="12" cy="12" r="4" />
-          <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
-        </svg>
-      ),
-    },
-    {
-      label: 'LinkedIn',
-      href: '#',
-      icon: (
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-          <path d="M6.5 8.5A2 2 0 1 1 6.5 4.5a2 2 0 0 1 0 4Zm-1.5 1.5h3v9h-3v-9Zm5 0h2.9v1.2h.04c.4-.75 1.38-1.55 2.84-1.55 3.04 0 3.7 2 3.7 4.6V19h-3v-4.1c0-.98-.02-2.24-1.36-2.24-1.37 0-1.58 1.07-1.58 2.17V19h-3v-9Z" />
-        </svg>
-      ),
-    },
-    {
-      label: 'Twitter',
-      href: '#',
-      icon: (
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-          <path d="M19.4 7.3c.01.16.01.32.01.49 0 5.02-3.82 10.8-10.8 10.8-2.14 0-4.12-.63-5.79-1.71.3.03.6.04.91.04 1.77 0 3.4-.6 4.7-1.62-1.66-.03-3.05-1.12-3.53-2.61.23.04.46.07.7.07.34 0 .68-.05 1-.13-1.73-.35-3.03-1.87-3.03-3.71v-.05c.51.28 1.1.44 1.72.46a4.1 4.1 0 0 1-1.28-5.46 11.62 11.62 0 0 0 8.44 4.28 4.62 4.62 0 0 1-.1-.94 4.1 4.1 0 0 1 7.09-2.8 8.14 8.14 0 0 0 2.6-1c-.3.92-.92 1.7-1.73 2.19.8-.1 1.57-.31 2.28-.63a8.82 8.82 0 0 1-2.05 2.13Z" />
-        </svg>
-      ),
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-white text-slate-950">
       <Navbar />
