@@ -3,15 +3,42 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import PropertyCard from '../components/PropertyCard';
-import { properties } from '../data/properties';
 
 const Home = () => {
-  const stats = [
-    { value: '98%', label: 'Success rate' },
-    { value: '1.2k+', label: 'Properties sold' },
-    { value: '350+', label: 'Active listings' },
-    { value: '24/7', label: 'Client support' },
+  const successStats = [
+    {
+      value: '500+',
+      label: 'Properties Sold',
+      icon: (
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+          <path d="M4 10.5 12 4l8 6.5" />
+          <path d="M6.5 9.5V20h11V9.5" />
+          <path d="M10 20v-5h4v5" />
+        </svg>
+      ),
+    },
+    {
+      value: '200+',
+      label: 'Happy Clients',
+      icon: (
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+          <path d="M16.5 19a4.5 4.5 0 0 0-9 0" />
+          <circle cx="12" cy="8" r="3.5" />
+          <path d="M18.5 19a3.8 3.8 0 0 0-2.3-3.2" />
+          <path d="M16 4.8a3.5 3.5 0 0 1 0 6.9" />
+        </svg>
+      ),
+    },
+    {
+      value: '15+',
+      label: 'Years of Experience',
+      icon: (
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+          <path d="M12 7v5l3 2" />
+          <circle cx="12" cy="12" r="8.5" />
+        </svg>
+      ),
+    },
   ];
 
   const socialLinks = [
@@ -45,247 +72,182 @@ const Home = () => {
       ),
     },
     {
-      label: 'YouTube',
+      label: 'Twitter',
       href: '#',
       icon: (
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-          <path d="M21.7 8.2s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C16.3 5 12 5 12 5s-4.3 0-6.9.3c-.4 0-1.2.1-1.9.9-.6.6-.8 2-.8 2S2 9.8 2 11.4v1.2c0 1.6.3 3.2.3 3.2s.2 1.4.8 2c.7.8 1.6.8 2 .9 1.5.1 6.9.3 6.9.3s4.3 0 6.9-.3c.4 0 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.3-1.6.3-3.2v-1.2c0-1.6-.3-3.2-.3-3.2ZM10 15V9l5 3-5 3Z" />
-        </svg>
-      ),
-    },
-    {
-      label: 'X',
-      href: '#',
-      icon: (
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-          <path d="M4 5h4.4l4.1 5.4L17 5h3l-5.9 7.4L20 19h-4.4l-4.4-5.8L6.6 19H3.6l6.1-7.7L4 5Zm4.8 1.4H6.8L16.9 17.7h1.8L8.8 6.4Z" />
+          <path d="M19.4 7.3c.01.16.01.32.01.49 0 5.02-3.82 10.8-10.8 10.8-2.14 0-4.12-.63-5.79-1.71.3.03.6.04.91.04 1.77 0 3.4-.6 4.7-1.62-1.66-.03-3.05-1.12-3.53-2.61.23.04.46.07.7.07.34 0 .68-.05 1-.13-1.73-.35-3.03-1.87-3.03-3.71v-.05c.51.28 1.1.44 1.72.46a4.1 4.1 0 0 1-1.28-5.46 11.62 11.62 0 0 0 8.44 4.28 4.62 4.62 0 0 1-.1-.94 4.1 4.1 0 0 1 7.09-2.8 8.14 8.14 0 0 0 2.6-1c-.3.92-.92 1.7-1.73 2.19.8-.1 1.57-.31 2.28-.63a8.82 8.82 0 0 1-2.05 2.13Z" />
         </svg>
       ),
     },
   ];
 
-  const projectTags = ['Flat', 'House', 'Plot', 'Land', 'Share'];
-
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen bg-white text-slate-950">
       <Navbar />
 
-      <main id="home" className="mx-auto max-w-7xl space-y-8 px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+      <main>
         <motion.section
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="overflow-hidden rounded-[2rem] border border-slate-800 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.18),_transparent_34%),linear-gradient(135deg,_#0f172a_0%,_#0b1220_100%)] shadow-2xl"
+          className="w-full bg-slate-900 text-white"
         >
-          <div className="grid gap-10 px-6 py-10 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:py-14">
-            <div className="space-y-6">
-              <span className="inline-flex rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm font-medium text-emerald-300">
-                Premium real estate advisory
-              </span>
-              <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+            <div className="max-w-4xl space-y-6">
+              <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
                 Build, buy, and invest in properties with a trusted market partner.
               </h1>
               <p className="max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
-                Quality Real Estate connects serious buyers and sellers with a professional, high-conversion property experience built for modern clients.
+                Quality Real Estate connects serious buyers and sellers with a professional, high-conversion property experience.
               </p>
+
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link to="/properties" className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-400">
+                <Link
+                  to="/properties"
+                  className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-4 text-base font-semibold text-white transition hover:bg-emerald-400"
+                >
                   Explore Properties
                 </Link>
-                <Link to="/list-property" className="inline-flex items-center justify-center rounded-full border border-slate-700 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-400 hover:text-emerald-300">
-                  Sell With Us
-                </Link>
-              </div>
-              <div className="grid gap-3 pt-4 sm:grid-cols-3">
-                {projectTags.map((tag) => (
-                  <div key={tag} className="rounded-2xl border border-slate-800 bg-white/5 px-4 py-3 text-sm text-slate-200">
-                    {tag}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-              <div className="rounded-[1.75rem] border border-slate-800 bg-slate-900/80 p-6 backdrop-blur">
-                <p className="text-sm uppercase tracking-[0.2em] text-emerald-300">Quick insight</p>
-                <h2 className="mt-3 text-2xl font-semibold text-white">A cleaner way to move property.</h2>
-                <p className="mt-3 text-sm leading-6 text-slate-400">
-                  We pair strategic marketing, local expertise, and premium presentation to create stronger listings and better outcomes.
-                </p>
-                <Link to="/properties" className="mt-6 inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300">
-                  View live inventory
-                </Link>
-              </div>
-
-              <div className="rounded-[1.75rem] border border-emerald-500/20 bg-emerald-500/10 p-6">
-                <p className="text-sm uppercase tracking-[0.2em] text-emerald-200">Market focus</p>
-                <p className="mt-3 text-lg font-medium text-white">
-                  Tailored solutions for apartments, houses, plots, land, and share-based opportunities.
-                </p>
-                <Link to="/list-property" className="mt-6 inline-flex rounded-full border border-emerald-300 px-5 py-2.5 text-sm font-semibold text-emerald-200 transition hover:bg-emerald-300 hover:text-slate-950">
-                  Book a listing review
+                <Link
+                  to="/list-property"
+                  className="inline-flex items-center justify-center rounded-full border border-white px-8 py-4 text-base font-semibold text-white transition hover:bg-white hover:text-slate-900"
+                >
+                  List Your Property
                 </Link>
               </div>
             </div>
           </div>
         </motion.section>
 
-        <section id="buyers" className="grid gap-6 lg:grid-cols-2">
-          <motion.article
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.45 }}
-            className="rounded-[2rem] border border-slate-800 bg-slate-900 p-8 shadow-xl"
-          >
-            <p className="text-sm uppercase tracking-[0.2em] text-emerald-300">Buyer section</p>
-            <h2 className="mt-3 text-3xl font-semibold text-white">Find the right property with confidence.</h2>
-            <p className="mt-4 max-w-xl text-sm leading-7 text-slate-400">
-              Browse curated homes and investment opportunities matched to your location, budget, and long-term goals.
-            </p>
-            <Link to="/properties" className="mt-6 inline-flex rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-400">
-              Start buying now
-            </Link>
-          </motion.article>
-
-          <motion.article
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.45, delay: 0.1 }}
-            className="rounded-[2rem] border border-emerald-500/20 bg-white p-8 shadow-xl"
-          >
-            <p className="text-sm uppercase tracking-[0.2em] text-emerald-600">Seller section</p>
-            <h2 className="mt-3 text-3xl font-semibold text-slate-950">List your property and attract serious buyers.</h2>
-            <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600">
-              Present your asset with premium visuals, clear positioning, and a process designed to increase buyer trust and conversion.
-            </p>
-            <Link to="/list-property" className="mt-6 inline-flex rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">
-              Create a listing
-            </Link>
-          </motion.article>
-        </section>
-
-        <section id="stats" className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {stats.map((stat, index) => (
+        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <div className="grid gap-6 lg:grid-cols-2">
             <motion.article
-              key={stat.label}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.35, delay: index * 0.05 }}
-              className="rounded-[1.75rem] border border-slate-800 bg-slate-900/90 p-6"
+              viewport={{ once: true, amount: 0.3 }}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="rounded-3xl bg-slate-50 p-8 sm:p-10"
             >
-              <p className="text-4xl font-semibold text-white">{stat.value}</p>
-              <p className="mt-2 text-sm uppercase tracking-[0.18em] text-slate-400">{stat.label}</p>
-              <Link to="/properties" className="mt-5 inline-flex text-sm font-semibold text-emerald-300 transition hover:text-emerald-200">
-                Explore the numbers
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+                Buyer section
+              </h2>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
+                Discover curated properties with a smoother search experience and a trusted team ready to guide your next purchase.
+              </p>
+              <Link
+                to="/properties"
+                className="mt-6 inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                Start buying now
               </Link>
             </motion.article>
-          ))}
-        </section>
 
-        <section id="properties" className="space-y-5">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-emerald-300">Featured properties</p>
-              <h2 className="mt-2 text-3xl font-semibold text-white">Recent listings ready to explore.</h2>
-            </div>
-            <Link to="/properties" className="inline-flex rounded-full border border-slate-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-emerald-400 hover:text-emerald-300">
-              Browse all properties
-            </Link>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {properties.map((property) => (
-              <PropertyCard key={property.id} property={property} />
-            ))}
-          </div>
-        </section>
-
-        <section id="social" className="rounded-[2rem] border border-slate-800 bg-slate-900 p-8">
-          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-emerald-300">Social media</p>
-              <h2 className="mt-2 text-3xl font-semibold text-white">Stay connected across every channel.</h2>
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400">
-                Follow our latest market updates, new listings, and property stories across the platforms where your audience already spends time.
+            <motion.article
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="rounded-3xl bg-emerald-50 p-8 sm:p-10"
+            >
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+                Seller section
+              </h2>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
+                Present your property with clarity, reach serious buyers faster, and move forward with a listing process built for results.
               </p>
-            </div>
-            <Link to="/" className="inline-flex rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-400">
-              Follow our updates
-            </Link>
-          </div>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {socialLinks.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-950 px-4 py-4 text-sm font-medium text-slate-200 transition hover:border-emerald-400 hover:text-emerald-300"
+              <Link
+                to="/list-property"
+                className="mt-6 inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-400"
               >
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-emerald-400/10 text-emerald-300">
-                  {item.icon}
-                </span>
-                <span>{item.label}</span>
-              </a>
-            ))}
+                Create a listing
+              </Link>
+            </motion.article>
           </div>
         </section>
 
-        <section id="about" className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.45 }}
-            className="rounded-[2rem] border border-slate-800 bg-[linear-gradient(180deg,_rgba(16,185,129,0.12),_rgba(15,23,42,0.96))] p-8"
-          >
-            <p className="text-sm uppercase tracking-[0.2em] text-emerald-300">About us</p>
-            <h2 className="mt-3 text-3xl font-semibold text-white">A professional team built around trust and clarity.</h2>
-            <p className="mt-4 text-sm leading-7 text-slate-300">
-              Quality Real Estate helps clients buy and sell with a streamlined process, transparent communication, and presentation that feels premium from first click to closing.
-            </p>
-            <Link to="/list-property" className="mt-6 inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300">
-              Talk to our team
-            </Link>
-          </motion.div>
+        <motion.section
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.45 }}
+          className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12"
+        >
+          <div className="rounded-3xl bg-slate-50 px-6 py-10 sm:px-8 lg:px-10">
+            <div className="mb-8 max-w-2xl">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-600">Success rate</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                Measured results, presented with clarity.
+              </h2>
+            </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.45, delay: 0.05 }}
-            className="rounded-[2rem] border border-slate-800 bg-slate-900 p-8"
-          >
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                { title: 'Market expertise', text: 'Guidance grounded in practical property experience.' },
-                { title: 'Premium marketing', text: 'Listings designed to convert attention into action.' },
-                { title: 'Buyer support', text: 'Help finding the right location, price, and timing.' },
-                { title: 'Seller strategy', text: 'High-impact listing plans for faster, stronger offers.' },
-              ].map((item) => (
-                <div key={item.title} className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">{item.text}</p>
+            <div className="grid gap-4 md:grid-cols-3">
+              {successStats.map((stat) => (
+                <div key={stat.label} className="rounded-2xl border border-slate-200 bg-white p-6">
+                  <div className="flex items-start gap-4">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                      {stat.icon}
+                    </span>
+                    <div>
+                      <p className="text-3xl font-semibold text-slate-950">{stat.value}</p>
+                      <p className="mt-1 text-sm text-slate-600">{stat.label}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
-            <Link to="/properties" className="mt-6 inline-flex rounded-full border border-slate-700 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-400 hover:text-emerald-300">
-              Learn more about our process
-            </Link>
-          </motion.div>
-        </section>
+          </div>
+        </motion.section>
 
-        <section id="contact" className="rounded-[2rem] border border-emerald-500/20 bg-emerald-500/10 px-8 py-10 text-center">
-          <p className="text-sm uppercase tracking-[0.2em] text-emerald-200">Contact</p>
-          <h2 className="mt-3 text-3xl font-semibold text-white">Ready to talk about your next property move?</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-300">
-            Call our team for direct support on buying, selling, or listing a property with a polished, professional process.
-          </p>
-          <a href="tel:+8801712345678" className="mt-6 inline-flex rounded-full bg-emerald-500 px-7 py-3 text-sm font-semibold text-white transition hover:bg-emerald-400">
-            Call +88 01712-345678
-          </a>
-        </section>
+        <motion.section
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.45, delay: 0.05 }}
+          className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12"
+        >
+          <div className="max-w-3xl space-y-6">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-600">About us</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              Built on trust, guided by expertise.
+            </h2>
+            <p className="text-base leading-8 text-slate-600 sm:text-lg">
+              Quality Real Estate helps buyers and sellers make better property decisions through a clear process, thoughtful guidance, and a calm professional experience. Our mission is to keep the journey simple while delivering strong outcomes.
+            </p>
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.45, delay: 0.1 }}
+          className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12"
+        >
+          <div className="rounded-3xl bg-slate-50 px-6 py-10 text-center sm:px-8 lg:px-10">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-600">Social media</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              Connect with us on social media
+            </h2>
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  aria-label={item.label}
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-emerald-300 hover:text-emerald-600"
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+        </motion.section>
       </main>
+
       <Footer />
     </div>
   );

@@ -70,7 +70,7 @@ const Navbar = () => {
           href="tel:+8801712345678"
           className="hidden rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-400 md:inline-flex"
         >
-          Contact +88 01712-345678
+          Contact +88 01993-344557
         </a>
       </div>
 
@@ -90,8 +90,8 @@ const Navbar = () => {
                 ))}
               </div>
             </div>
-            <a href="tel:+8801712345678" className="rounded-full bg-emerald-500 px-4 py-3 text-center text-sm font-semibold text-white">
-              Contact +88 01712-345678
+            <a href="tel:+8801993344557" className="rounded-full bg-emerald-500 px-4 py-3 text-center text-sm font-semibold text-white">
+              Contact +88 01993-344557
             </a>
           </div>
         </div>
