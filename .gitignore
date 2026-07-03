@@ -7,6 +7,10 @@
 /dist
 /dist-ssr
 
+# deployment scratch space
+/.deploy-gh-pages/
+/.gh-pages-worktree/
+
 # env files
 .env
 .env.local
