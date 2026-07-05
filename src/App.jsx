@@ -12,9 +12,9 @@ function App() {
       {homePaths.map((path) => (
         <Route key={path} path={path} element={<Home />} />
       ))}
-      <Route path="/property/:id" element={<PropertyDetails />} />
       <Route path="/list-property" element={<ListProperty />} />
       <Route path="/buy" element={<BuyPage />} />
+      <Route path="/property/:id" element={<PropertyDetails />} />
     </Routes>
   );
 }
