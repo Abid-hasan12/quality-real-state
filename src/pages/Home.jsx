@@ -103,7 +103,7 @@ const Home = () => {
 
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
-                  to="/properties"
+                  to="/buy"
                   className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-4 text-base font-semibold text-white transition hover:bg-emerald-400"
                 >
                   Explore Properties
@@ -136,7 +136,7 @@ const Home = () => {
                 Discover curated properties with a smoother search experience and a trusted team ready to guide your next purchase.
               </p>
               <Link
-                to="/properties"
+                to="/buy"
                 className="mt-6 inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
                 Start buying now

@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import PropertyDetails from './pages/PropertyDetails';
 import ListProperty from './pages/ListProperty';
+import BuyPage from './pages/BuyPage';
 
 const homePaths = ['/', '/properties'];
 
@@ -13,6 +14,7 @@ function App() {
       ))}
       <Route path="/property/:id" element={<PropertyDetails />} />
       <Route path="/list-property" element={<ListProperty />} />
+      <Route path="/buy" element={<BuyPage />} />
     </Routes>
   );
 }
