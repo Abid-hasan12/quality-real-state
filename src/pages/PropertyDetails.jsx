@@ -7,6 +7,23 @@ import ReactPlayer from 'react-player';
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
+const formatPrice = (price) => {
+  const numericPrice = typeof price === 'number' ? price : Number(String(price).replace(/[^0-9.-]/g, ''));
+
+  if (Number.isFinite(numericPrice)) {
+    return numericPrice >= 10000000
+      ? `${(numericPrice / 10000000).toFixed(1)} Crore`
+      : `${(numericPrice / 100000).toFixed(0)} Lac`;
+  }
+
+  return price;
+};
+
+const formatSize = (size) => {
+  const numericSize = typeof size === 'number' ? size : Number(String(size).replace(/[^0-9.-]/g, ''));
+  return Number.isFinite(numericSize) ? `${numericSize} sqft` : size;
+};
+
 const PropertyDetails = () => {
   const { id } = useParams();
   const property = projects.find((p) => p.id === parseInt(id));
@@ -30,11 +47,11 @@ const PropertyDetails = () => {
           <div className="flex gap-10 mt-2">
             <div className="border-t pt-2 w-1/4">
               <p className="text-slate-400 text-sm">Price</p>
-              <p className="font-bold text-2xl">{property.price}</p>
+              <p className="font-bold text-2xl">{formatPrice(property.price)}</p>
             </div>
             <div className="border-t pt-2 w-2/4">
               <p className="text-slate-400 text-sm">Size</p>
-              <p className="font-bold text-2xl">{property.size}</p>
+              <p className="font-bold text-2xl">{formatSize(property.size)}</p>
             </div>
           </div>
         </div>
@@ -42,12 +59,12 @@ const PropertyDetails = () => {
         {/* ফুল ডিটেইলস - এখানে moreDetails থেকে ডাটা নেওয়া হয়েছে */}
         <div className="bg-slate-50 p-2 rounded-3xl mb-10">
           <h2 className="text-xl font-bold mb-4">Details:</h2>
-          <p className="text-black leading-relaxed">
-            {moreDetails?.FullDetails || property.description}
+          <p className="text-black leading-relaxed whitespace-pre-line">
+            {moreDetails?.FullDetails}
           </p>
         </div>
 
-        {/* ইমেজ গ্রিড সেকশন - galleryImages থেকে ম্যাপ করা হয়েছে */}
+        {/* ইমেজ গ্রিড সেকশন - galleryImages থেকে ম্যাপ করা হয়েছে */}
         {moreDetails?.galleryImages && (
           <div className="mb-10">
             <h2 className="text-2xl font-bold mb-6">Images Gallery</h2>
@@ -71,7 +88,7 @@ const PropertyDetails = () => {
             <div className="aspect-video w-full md:w-2/3">
               <iframe
                 className="w-full h-full rounded-2xl"
-                src={moreDetails.videoUrl}
+                src={moreDetails.videoUrl.replace("shorts/", "embed/")}
                 title="Property Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
