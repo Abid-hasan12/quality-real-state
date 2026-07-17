@@ -3,19 +3,14 @@ import { useParams, Navigate } from 'react-router-dom';
 import { projects } from '../data/data';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import ReactPlayer from 'react-player';
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
 const formatPrice = (price) => {
   const numericPrice = typeof price === 'number' ? price : Number(String(price).replace(/[^0-9.-]/g, ''));
-
   if (Number.isFinite(numericPrice)) {
-    return numericPrice >= 10000000
-      ? `${(numericPrice / 10000000).toFixed(1)} Crore`
-      : `${(numericPrice / 100000).toFixed(0)} Lac`;
+    return numericPrice >= 10000000 ? `${(numericPrice / 10000000).toFixed(1)} Crore` : `${(numericPrice / 100000).toFixed(0)} Lac`;
   }
-
   return price;
 };
 
@@ -24,24 +19,46 @@ const formatSize = (size) => {
   return Number.isFinite(numericSize) ? `${numericSize} sqft` : size;
 };
 
+const getAssetUrl = (path) => {
+  if (!path) return '';
+  if (/^https?:\/\//i.test(path)) return path;
+
+  const normalizedPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${import.meta.env.BASE_URL}${normalizedPath}`;
+};
+
+const getVideoEmbedUrl = (url) => {
+  if (!url) return '';
+
+  if (url.includes('/shorts/')) {
+    return url.replace('/shorts/', '/embed/');
+  }
+
+  if (url.includes('youtu.be/')) {
+    const videoId = url.split('youtu.be/')[1]?.split(/[?&]/)[0];
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+  }
+
+  return url;
+};
+
 const PropertyDetails = () => {
   const { id } = useParams();
   const property = projects.find((p) => p.id === parseInt(id));
 
-  // Lightbox State
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
   if (!property) return <Navigate to="/buy" />;
 
-  // moreDetails থেকে ডাটা destructure করে নেওয়া
   const { moreDetails } = property;
+  const galleryImages = (moreDetails?.galleryImages ?? []).map(getAssetUrl);
+  const videoUrl = getVideoEmbedUrl(moreDetails?.videoUrl);
 
   return (
     <div>
       <Navbar />
       <main className="container mx-auto p-8 mt-10 min-h-screen">
-        {/* উপরের তথ্য সেকশন */}
         <div className="mb-8">
           <p className="text-emerald-600 font-bold text-lg">{moreDetails.FullLocation}</p>
           <div className="flex gap-10 mt-2">
@@ -56,23 +73,20 @@ const PropertyDetails = () => {
           </div>
         </div>
 
-        {/* ফুল ডিটেইলস - এখানে moreDetails থেকে ডাটা নেওয়া হয়েছে */}
         <div className="bg-slate-50 p-2 rounded-3xl mb-10">
           <h2 className="text-xl font-bold mb-4">Details:</h2>
-          <p className="text-black leading-relaxed whitespace-pre-line">
-            {moreDetails?.FullDetails}
-          </p>
+          <p className="text-black leading-relaxed whitespace-pre-line">{moreDetails?.FullDetails}</p>
         </div>
 
-        {/* ইমেজ গ্রিড সেকশন - galleryImages থেকে ম্যাপ করা হয়েছে */}
-        {moreDetails?.galleryImages && (
+        {galleryImages.length > 0 && (
           <div className="mb-10">
             <h2 className="text-2xl font-bold mb-6">Images Gallery</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {moreDetails.galleryImages.map((img, index) => (
+              {galleryImages.map((img, index) => (
                 <img
                   key={index}
                   src={img}
+                  alt={`${property.name} gallery image ${index + 1}`}
                   className="cursor-pointer rounded-xl h-40 w-full object-cover hover:opacity-80 transition"
                   onClick={() => { setPhotoIndex(index); setIsOpen(true); }}
                 />
@@ -81,14 +95,13 @@ const PropertyDetails = () => {
           </div>
         )}
 
-        {/* ভিডিও সেকশন */}
-        {moreDetails?.videoUrl && (
+        {videoUrl && (
           <div className="mb-10">
             <h2 className="text-2xl font-bold mb-6">Property Video</h2>
             <div className="aspect-video w-full md:w-2/3">
               <iframe
                 className="w-full h-full rounded-2xl"
-                src={moreDetails.videoUrl.replace("shorts/", "embed/")}
+                src={videoUrl}
                 title="Property Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -99,19 +112,15 @@ const PropertyDetails = () => {
         )}
       </main>
 
-      {/* Lightbox Component */}
       {isOpen && (
         <Lightbox
           open={isOpen}
           close={() => setIsOpen(false)}
-          slides={moreDetails.galleryImages.map((img) => ({ src: img }))}
+          slides={galleryImages.map((img) => ({ src: img }))}
           index={photoIndex}
-          on={{
-            view: ({ index }) => setPhotoIndex(index),
-          }}
+          on={{ view: ({ index }) => setPhotoIndex(index) }}
         />
       )}
-
       <Footer />
     </div>
   );

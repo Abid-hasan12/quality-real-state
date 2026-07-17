@@ -1,3 +1,5 @@
+
+
 // src/data.js
 export const filterData = {
   projects: ["Flat", "House", "Land", "Plot", "Share"],
@@ -33,7 +35,9 @@ export const projects = [
       Price: BDT 5.6 Million(56 Lakh)`,
       galleryImages: [
         "/images/d31.jpeg",
-        "/images/d32.jpeg"
+        "/images/d32.jpeg",
+        "/images/d34.jpeg",
+        "/images/d35.jpeg"
       ],
       videoUrl: "https://youtube.com/shorts/SQdSiHB4nV4?si=nxSAzAsEMEx7dBAA"
     }
@@ -53,8 +57,8 @@ export const projects = [
       FullLocation: "Dhanmondi, Dhaka, Bangladesh",
       FullDetails: "This luxury flat features modern architecture, 24/7 security, and premium amenities.",
       galleryImages: [
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
+        "/images/d31.jpeg",
+        "/images/d32.jpeg",
       ],
       videoUrl: "https://www.youtube.com/embed/URVEdy6TvDg"
     }
@@ -74,8 +78,8 @@ export const projects = [
       FullLocation: "Dhanmondi, Dhaka, Bangladesh",
       FullDetails: "This luxury flat features modern architecture, 24/7 security, and premium amenities.",
       galleryImages: [
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
+        "/images/d34.jpeg",
+        "/images/d35.jpeg",
       ],
       videoUrl: "https://www.youtube.com/embed/URVEdy6TvDg"
     }
@@ -95,8 +99,8 @@ export const projects = [
       FullLocation: "Dhanmondi, Dhaka, Bangladesh",
       FullDetails: "This luxury flat features modern architecture, 24/7 security, and premium amenities.",
       galleryImages: [
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
+        "/images/d31.jpeg",
+        "/images/d35.jpeg",
       ],
       videoUrl: "https://www.youtube.com/embed/URVEdy6TvDg"
     }
