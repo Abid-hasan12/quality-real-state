@@ -8,6 +8,8 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  // 👈 এই ভেরিয়েবলটি ডিফাইন করা মিস হয়েছিল
+  const isHome = location.pathname === '/' || location.pathname === '/home' || location.pathname === '/properties';
   // Scroll effect for navbar background and shadow
   useEffect(() => {
     const handleScroll = () => {
@@ -23,9 +25,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled
-          ? 'bg-[rgba(7,24,45,0.72)] backdrop-blur-2xl shadow-2xl border-[rgba(255,255,255,0.08)]'
-          : 'bg-transparent border-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled || !isHome
+        ? 'bg-[rgba(7,24,45,0.90)] backdrop-blur-2xl shadow-2xl border-[rgba(255,255,255,0.08)]'
+        : 'bg-transparent border-transparent'
         }`}
     >
       {/* Tiny Background Pattern / Noise overlay effect inside navbar */}

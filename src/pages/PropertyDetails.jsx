@@ -49,11 +49,51 @@ const PropertyDetails = () => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
+  // বুকিং ফর্মের জন্য স্টেট
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    date: '',
+    time: ''
+  });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   if (!property) return <Navigate to="/buy" />;
 
   const { moreDetails } = property;
   const galleryImages = (moreDetails?.galleryImages ?? []).map(getAssetUrl);
   const videoUrl = getVideoEmbedUrl(moreDetails?.videoUrl);
+
+  // ইনপুট পরিবর্তনের হ্যান্ডলার
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // হোয়াটসঅ্যাপে বুকিং পাঠানোর হ্যান্ডলার
+  const handleBookingSubmit = (e) => {
+    e.preventDefault();
+
+    // আপনার অ্যাডমিন হোয়াটসঅ্যাপ নম্বর (কান্ট্রি কোড সহ)
+    const adminWhatsAppNumber = "8801805030165";
+
+    // হোয়াটসঅ্যাপ মেসেজ ফরম্যাট (যেখানে প্রপার্টির নাম, প্রাইস, সাইজ এবং লোকেশন অটোমেটিক যাবে)
+    const message = `*New Property Visit Booking!*%0A
+🏠 *Property:* ${property.name}%0A
+📍 *Location:* ${moreDetails?.FullLocation}%0A
+💰 *Price:* ${formatPrice(property.price)}%0A
+📐 *Size:* ${formatSize(property.size)}%0A
+-------------------%0A
+👤 *Name:* ${formData.name}%0A
+📞 *Phone:* ${formData.phone}%0A
+📅 *Date:* ${formData.date}%0A
+⏰ *Time:* ${formData.time}`;
+
+    const whatsappUrl = `https://wa.me/${adminWhatsAppNumber}?text=${message}`;
+
+    window.open(whatsappUrl, '_blank');
+    setIsSubmitted(true);
+  };
 
   return (
     <div>
@@ -110,6 +150,88 @@ const PropertyDetails = () => {
             </div>
           </div>
         )}
+
+        {/* Schedule a Visit Section (Footer এর ঠিক আগে) */}
+        <section className="bg-slate-900 py-16 px-4 rounded-3xl max-w-5xl mx-auto my-16 text-white">
+          <div className="max-w-2xl mx-auto text-center mb-10">
+            <span className="text-emerald-400 font-semibold uppercase tracking-wider text-sm bg-slate-800 px-4 py-1.5 rounded-full inline-block mb-3">
+              Book a Visit
+            </span>
+            <h2 className="text-3xl font-bold">Schedule a Property Visit</h2>
+            <p className="text-slate-400 mt-2">Fill up the form below to book your visiting slot for {property.name}.</p>
+          </div>
+
+          {isSubmitted ? (
+            <div className="bg-emerald-600/20 border border-emerald-500 text-emerald-300 p-6 rounded-2xl text-center max-w-lg mx-auto">
+              <p>Thank you, {formData.name}. Your booking details for {property.name} have been prepared to send.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleBookingSubmit} className="max-w-xl mx-auto space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm text-slate-300 mb-1">Your Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Enter your name"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-slate-300 mb-1">Phone Number</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="01XXXXXXXXX"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm text-slate-300 mb-1">Date</label>
+                  <input
+                    type="text"
+                    name="date"
+                    required
+                    placeholder="DD/MM/YYYY or e.g., Tomorrow"
+                    value={formData.date}
+                    onChange={handleInputChange}
+                    onFocus={(e) => (e.target.type = 'date')}
+                    onBlur={(e) => { if (!e.target.value) e.target.type = 'text'; }}
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-slate-300 mb-1">Time</label>
+                  <input
+                    type="text"
+                    name="time"
+                    required
+                    placeholder="e.g., 03:30 PM"
+                    value={formData.time}
+                    onChange={handleInputChange}
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500"
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-emerald-600 hover:bg-emerald-500 transition text-white font-semibold py-4 rounded-xl shadow-lg mt-4"
+              >
+                Book via WhatsApp
+              </button>
+            </form>
+          )}
+        </section>
       </main>
 
       {isOpen && (

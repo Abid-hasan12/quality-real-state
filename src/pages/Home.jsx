@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Hero from './Hero';
+import AboutSection from '../components/AboutSection';
 import Footer from '../components/Footer';
 import { projects } from '../data/data';
 
@@ -98,8 +99,6 @@ const Home = () => {
                 </div>
               ))}
             </div>
-
-            {/* Mobile View All Button (শুধুমাত্র মোবাইলে দেখাবে) */}
             <div className="mt-10 text-center sm:hidden">
               <Link
                 to="/buy"
@@ -111,22 +110,8 @@ const Home = () => {
           </div>
         </section>
 
-        {/* 5. About Company */}
-        <section className="py-24 bg-white overflow-hidden">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100 h-[400px]">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" alt="About Company" className="w-full h-full object-cover" />
-              </div>
-              <div className="space-y-6">
-                <span className="text-emerald-600 font-semibold uppercase tracking-wider text-sm bg-emerald-50 px-4 py-1.5 rounded-full inline-block">About Company</span>
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">Crafting spaces, building trust, and shaping your future.</h2>
-                <p className="text-slate-600 leading-relaxed text-base">At Quality Real Estate, we believe finding a property should be an experience built on transparency, reliability, and expert guidance.</p>
-                <Link to="/buy" className="inline-flex items-center justify-center rounded-full bg-slate-950 px-8 py-4 text-sm font-semibold text-white transition hover:bg-emerald-600 shadow-md">Learn More</Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* about section */}
+        <AboutSection />
 
         {/* 7. FAQ */}
         <section className="py-24 bg-white">
@@ -151,8 +136,23 @@ const Home = () => {
           <div className="mx-auto max-w-5xl bg-slate-900 rounded-[3rem] p-12 text-center text-white shadow-xl">
             <h2 className="text-4xl font-bold">Ready to Start Your Journey?</h2>
             <p className="mt-4 text-slate-400">Join 200+ happy clients who trusted us with their property decisions.</p>
-            <div className="mt-8">
-              <Link to="/buy" className="inline-block bg-white text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-emerald-400 transition">Get Started</Link>
+
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              {/* Get Started Button */}
+              <Link
+                to="/buy"
+                className="inline-block bg-white text-slate-900 px-8 py-3.5 rounded-full font-bold hover:bg-emerald-400 transition shadow-lg"
+              >
+                Get Started
+              </Link>
+
+              {/* Contact Us Button */}
+              <Link
+                to="/contact"
+                className="inline-block border border-white/20 bg-white/10 px-8 py-3.5 rounded-full font-bold text-white backdrop-blur-md hover:bg-white hover:text-slate-900 transition shadow-lg"
+              >
+                Contact Us
+              </Link>
             </div>
           </div>
         </section>
