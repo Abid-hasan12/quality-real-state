@@ -98,16 +98,16 @@ const PropertyDetails = () => {
   return (
     <div>
       <Navbar />
-      <main className="container mx-auto p-8 mt-10 min-h-screen">
+      <main className="container mx-auto p-8 py-20 mt-10 min-h-screen">
         <div className="mb-8">
           <p className="text-emerald-600 font-bold text-lg">{moreDetails.FullLocation}</p>
           <div className="flex gap-10 mt-2">
             <div className="border-t pt-2 w-1/4">
-              <p className="text-slate-400 text-sm">Price</p>
+              <p className="text-blue-900 font-bold text-sm">Price</p>
               <p className="font-bold text-2xl">{formatPrice(property.price)}</p>
             </div>
             <div className="border-t pt-2 w-2/4">
-              <p className="text-slate-400 text-sm">Size</p>
+              <p className="text-blue-900 font-bold text-sm">Size</p>
               <p className="font-bold text-2xl">{formatSize(property.size)}</p>
             </div>
           </div>

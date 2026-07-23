@@ -83,7 +83,7 @@ const BuyPage = () => {
     return (
         <div>
             <Navbar />
-            <main className="container mx-auto p-8 mt-10 min-h-screen">
+            <main className="container mx-auto p-8 py-20 mt-10 min-h-screen">
                 <h2 className="text-3xl font-bold mb-6">Find Your Property</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">

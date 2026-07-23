@@ -6,10 +6,12 @@ export const primaryNavLinks = [
 
 export const projectLinks = [
   { label: 'Flat', href: '/category/flat' },
+  { label: 'Ongoing', href: '/category/ongoing' },
   { label: 'House', href: '/category/house' },
   { label: 'Plot', href: '/category/plot' },
   { label: 'Land', href: '/category/land' },
   { label: 'Share', href: '/category/share' },
+  { label: 'Commercial', href: '/category/commercial' },
 ];
 
 export const contactLink = {
