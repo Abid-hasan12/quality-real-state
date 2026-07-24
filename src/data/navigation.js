@@ -5,12 +5,14 @@ export const primaryNavLinks = [
 ];
 
 export const projectLinks = [
-  { label: 'Flat', href: '/category/flat' },
-  { label: 'Ongoing', href: '/category/ongoing' },
+  { label: 'Ready-Flat', href: '/category/Ready-Flat' },
+  { label: 'Ongoing-Flat', href: '/category/Ongoing-Flat' },
+  { label: 'Resale-Flat', href: '/category/Resale-Flat' },
   { label: 'House', href: '/category/house' },
   { label: 'Plot', href: '/category/plot' },
-  { label: 'Land', href: '/category/land' },
-  { label: 'Share', href: '/category/share' },
+  { label: 'Land-Share', href: '/category/Land-Share' },
+  { label: 'Flat-Land-Share', href: '/category/Flat-Land-Share' },
+  { label: 'Hotel-Share', href: '/category/Hotel-Share' },
   { label: 'Commercial', href: '/category/commercial' },
 ];
 
@@ -25,3 +27,5 @@ export const footerLinks = [
   { label: 'Cookie Policy', href: '#' },
   { label: 'Sitemap', href: '#' },
 ];
+
+  

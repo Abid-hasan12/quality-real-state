@@ -19,11 +19,11 @@ const AboutSection = () => {
                         <h2 className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
                             Crafting spaces, building trust, and shaping your future.
                         </h2>
-                        <p className="text-slate-600 leading-relaxed text-base">
-                            At Quality Real Estate, we believe finding a property should be an experience built on transparency, reliability, and expert guidance.
-                        </p>
+                        <p className="text-slate-800 leading-relaxed text-base">
+                                Welcome to <span className="font-bold">Quality Real Estate</span>, your trusted partner in finding the perfect property in Dhaka. Whether you are looking for a luxurious flat, a modern house, a secure plot, commercial land, or reliable property shares, we are committed to delivering excellence at every step. We don't just sell properties; we build lasting relationships based on transparency, trust, and exceptional customer service.
+                            </p>
                         <Link
-                            to="/buy"
+                            to="/About"
                             className="inline-flex items-center justify-center rounded-full bg-slate-950 px-8 py-4 text-sm font-semibold text-white transition hover:bg-emerald-600 shadow-md"
                         >
                             Learn More

@@ -1,10 +1,10 @@
 
 // src/data.js
 export const filterData = {
-  projects: ["Flat", "Ongoing", "House", "Plot", "Land", "Share", "Commercial"],
+  projects: ["Ready-Flat", "Ongoing-Flat", "Resale-Flat", "House", "Plot", "Land-Share", "Hotel-Share", "Flat-Land-Share", "Commercial"],
   locations: [
     "Aftabnagar", "Banasree", "Khilgaon", "Basabo",
-    "Goran", "Nandipara", "Dhanmondi", "Mirpur", "Uttara"
+    "Goran", "Nandipara", "Meradia", "Dhanmondi", "Mirpur", "Uttara"
   ],
   priceRanges: ["20 Lac - 40 Lac", "41 Lac - 60 Lac", "61 Lac - 80 Lac", "81 Lac - 1 Crore", "1 Crore+"],
   sizes: ["500-1000 sqft", "1000-1500 sqft", "1500-2000 sqft", "2000+ sqft"]
@@ -12,40 +12,11 @@ export const filterData = {
 
 // src/data/data.js
 export const projects = [
-  {
-    id: 0,
-    name: "Ready Flat",
-    category: "Flat",
-    location: "Banasree",
-    price: "5600000",
-    size: "1000",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
-    description: "Bhuiyapara, Rampura",
-
-    // ডিটেইলস পেজের জন্য অতিরিক্ত ডাটা:
-    moreDetails: {
-      FullLocation: " 📍 Location: Bhuiyapara, Rampura (Adjacent to Banasree D Block, Road No. 4)",
-      FullDetails: `
-      2 Bedrooms. 
-      2 Bathrooms.
-      2 Balconies.
-       Drawing, Dining & Kitchen.
-       Located on the 3rd Floor of a G + 6 Residential Building Built on 2.5 Katha of Land Only One Apartment Per Floor.
-      Price: BDT 5.6 Million(56 Lakh)`,
-      galleryImages: [
-        "/images/d31.jpeg",
-        "/images/d32.jpeg",
-        "/images/d34.jpeg",
-        "/images/d35.jpeg"
-      ],
-      videoUrl: "https://youtube.com/shorts/SQdSiHB4nV4?si=nxSAzAsEMEx7dBAA"
-    }
-  },
 
   {
-    id: 2,
+    id: 1,
     name: "Ongoing Family Apartment",
-    category: "Flat",
+    category: "Ongoing-Flat",
     location: "Basabo",
     price: "6500000",
     size: "1665",
@@ -89,60 +60,37 @@ export const projects = [
   },
   {
     id: 2,
-    name: "Premium Ready Apartment",
-    category: "Flat",
-    location: "Dhanmondi",
-    price: "8000000",
-    size: "1100",
-    image: "",
-    description: "Kathal Bagan Bazar, Dhanmondi Kalabagan",
+    name: "Ready Flat",
+    category: "Ready-Flat",
+    location: "Banasree",
+    price: "5600000",
+    size: "1000",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+    description: "Bhuiyapara, Rampura",
 
+    // ডিটেইলস পেজের জন্য অতিরিক্ত ডাটা:
     moreDetails: {
-      FullLocation:
-        "📍 Kathal Bagan Bazar, Dhanmondi Kalabagan, Opposite Bashundhara City Shopping Complex, Dhaka.",
-
+      FullLocation: " 📍 Location: Bhuiyapara, Rampura (Adjacent to Banasree D Block, Road No. 4)",
       FullDetails: `
-    • Apartment Size: 1,100+ Sq Ft
-    • Ready-to-Move Apartment
-    • 3 Spacious Bedrooms
-    • 3 Modern Bathrooms
-    • 2 Balconies
-    • Separate Drawing & Dining Areas
-    • Well-Planned Kitchen
-    • Available Floors: 6th, 7th & 8th
-    • East-Facing Apartment
-    • G+8 Residential Building
-    • Built on 4.15 Katha of Land
-    • 3 Apartments Per Floor
-    • 1 High-Speed Elevator
-    • 1 Staircase
-    • Titas Gas Connection
-    • Dedicated Car Parking Available
-    • Handover Completed in 2024
-    • 24/7 CCTV Surveillance
-    • Round-the-Clock Security Guard
-    • Generator Backup
-    • Uninterrupted Electricity & Water Supply
-    • Rental Potential: Approximately BDT 32,000/Month
-    • Price: BDT 8,000,000 (80 Lakh)
-    • Car Parking: BDT 500,000 (Optional)
-    • Price Per Sq Ft: BDT 7,300
-    `,
-
+      2 Bedrooms. 
+      2 Bathrooms.
+      2 Balconies.
+       Drawing, Dining & Kitchen.
+       Located on the 3rd Floor of a G + 6 Residential Building Built on 2.5 Katha of Land Only One Apartment Per Floor.
+      Price: BDT 5.6 Million(56 Lakh)`,
       galleryImages: [
-        "",
-        "",
-        "",
-        ""
+        "/images/d31.jpeg",
+        "/images/d32.jpeg",
+        "/images/d34.jpeg",
+        "/images/d35.jpeg"
       ],
-
-      videoUrl: "https://youtu.be/I8bDmk5KpM8?si=SMAbfEltX71DTNY5"
+      videoUrl: "https://youtube.com/shorts/SQdSiHB4nV4?si=nxSAzAsEMEx7dBAA"
     }
   },
   {
     id: 3,
     name: "Premium South-Facing Apartment",
-    category: "Flat",
+    category: "Ready-Flat",
     location: "Paltan",
 
     price: "23000000",
@@ -195,7 +143,7 @@ export const projects = [
   {
     id: 4,
     name: "Affordable Ready Apartment",
-    category: "Flat",
+    category: "Resale-Flat",
     location: "Basabo",
     price: "3900000",
     size: "750",
@@ -240,7 +188,7 @@ export const projects = [
   {
     id: 5,
     name: "Premium Hotel Share Investment",
-    category: "Share",
+    category: "Hotel-Share",
     location: "Cox's Bazar",
     price: "500000",
     size: "Investment Package",
@@ -294,7 +242,7 @@ export const projects = [
   {
     id: 6,
     name: "Spacious Ready Family Apartment",
-    category: "Flat",
+    category: "Ready-Flat",
     location: "Nandipara",
     price: "7000000",
     size: "1350",
@@ -345,8 +293,8 @@ export const projects = [
   {
     id: 8,
     name: "Premium South-Facing Ready Apartment",
-    category: "Flat",
-    location: "Banasree H Block, Rampura",
+    category: "Resale-Flat",
+    location: "Banasree",
     price: "12500000",
     size: "1600",
     image: "",
@@ -397,7 +345,7 @@ export const projects = [
   {
     id: 9,
     name: "Premium Ready Apartment with Parking",
-    category: "Flat",
+    category: "resale-Flat",
     location: "Basabo",
     price: "7200000",
     size: "1300",
@@ -450,8 +398,8 @@ export const projects = [
   {
     id: 10,
     name: "Ready Family Apartment",
-    category: "Flat",
-    location: "Banasree J Block",
+    category: "Ready-Flat",
+    location: "Banasree",
     price: "7000000",
     size: "1200",
     image: "",
@@ -496,10 +444,10 @@ export const projects = [
   {
     id: 11,
     name: "Premium Residential Plot",
-    category: "Land",
+    category: "Plot",
     location: "Aftabnagar",
     price: "13000000",
-    size: "5.75 Katha",
+    size: "4140",
     image: "",
     description: "Aftabnagar Residential Area",
 
@@ -531,5 +479,464 @@ export const projects = [
     }
   },
 
+  {
+    id: 12,
+    name: "Ready Residential Plot",
+    category: "Plot",
+    location: "Aftabnagar L Block",
+    price: "12000000",
+    size: "2880",
+    image: "",
+
+    moreDetails: {
+      FullLocation:
+        "📍 Block L, Sector 4, Road No. 2, Aftabnagar Residential Area, Dhaka.",
+
+      FullDetails: `
+    • 100% Ready Residential Plot
+    • Plot Size: 4 Katha
+    • Located in Block L, Sector 4
+    • Road No. 2
+    • Ideal for Immediate Home Construction
+    • Located in a Well-Planned Residential Neighborhood
+    • Suitable for Both Residential Living and Long-Term Investment
+    • Price: BDT 12,000,000 Per Katha (1 Crore 20 Lakh Per Katha)
+    • Total Plot Size: 4 Katha
+    `,
+
+      galleryImages: [
+        "",
+        "",
+        "",
+        ""
+      ],
+
+      videoUrl: "https://youtu.be/tll_FOFD6so?si=rFanrnvGxsPVroKD"
+    }
+  },
+
+  {
+    id: 13,
+    name: "Affordable Ready Apartment",
+    category: "Resale-Flat",
+    location: "Goran",
+    price: "5200000",
+    size: "1080",
+    image: "",
+
+    moreDetails: {
+      FullLocation:
+        "📍 Near Goran Chapra Mosque, Goran, Khilgaon, Dhaka.",
+
+      FullDetails: `
+    • Apartment Size: 1,080 Sq Ft
+    • Ready-to-Move Resale Apartment
+    • Located on the 4th Floor
+    • 3 Spacious Bedrooms
+    • 2 Modern Bathrooms
+    • 2 Balconies
+    • Comfortable Drawing Room
+    • Separate Dining Area
+    • Well-Planned Kitchen
+    • Well-Maintained Used Apartment
+    • Utility Connections Included
+    • Total Package Price: BDT 5,200,000 (52 Lakh)
+    `,
+
+      galleryImages: [
+        "",
+        "",
+        "",
+        ""
+      ],
+
+      videoUrl: "https://youtu.be/PawFq13mDNc?si=fi1S88mNHU2DnK1r"
+    }
+  },
+
+  {
+    id: 14,
+    name: "Premium Ready Family Apartment",
+    category: "Ready-Flat",
+    location: "Banasree",
+    price: "8500000",
+    size: "1350",
+    image: "",
+
+    moreDetails: {
+      FullLocation:
+        "📍 East of Meradia Bazar, Opposite Road No. 8, Banasree M Block, Rampura, Dhaka.",
+
+      FullDetails: `
+    • Apartment Size: 1,350 Sq Ft
+    • 100% Ready-to-Move Apartment
+    • Available on the 2nd & 3rd Floors
+    • 4 Spacious Bedrooms
+    • 3 Modern Bathrooms
+    • 2 Balconies
+    • Spacious Drawing Room
+    • Separate Dining Area
+    • Well-Planned Kitchen
+    • G+9 Residential Building
+    • Built on 4 Katha of Land
+    • Only 2 Apartments Per Floor
+    • 2nd Floor Apartment Comes with Complete Interior Finishing & Premium Lighting
+    • 3rd Floor Apartment Features Modern Gypsum Ceiling Design & Decorative Lighting
+    • Dedicated Car Parking Available
+    • Utility Connections Included
+    • Price Per Sq Ft: BDT 6,200
+    • Total Package Price: BDT 8,500,000 (85 Lakh)
+    `,
+
+      galleryImages: [
+        "",
+        "",
+        "",
+        ""
+      ],
+
+      videoUrl: "https://youtu.be/FT5zncgpv7Y?si=vCmVKeRh_Ia32OS4"
+    }
+  },
+  {
+    id: 15,
+    name: "South-Facing Premium Ready Apartment",
+    category: "Ready-Flat",
+    location: "Khilgaon",
+    price: "7500000",
+    size: "1020",
+    image: "",
+
+    moreDetails: {
+      FullLocation:
+        "📍 Beside Ananda Bakery, Riyazbag, Nabinbag, Khilgaon, Dhaka.",
+
+      FullDetails: `
+    • Apartment Size: 1,020 Sq Ft
+    • 100% Ready-to-Move Apartment
+    • Located on the 5th Floor
+    • South-Facing Apartment
+    • G+9 Residential Building
+    • Only 4 Apartments Per Floor (Different Layouts)
+    • 2 or 3 Spacious Bedrooms (Depending on Unit)
+    • 3 Modern Bathrooms
+    • 1 South-Facing Balcony
+    • Drawing/Dining Area
+    • Well-Planned Kitchen
+    • 2 High-Speed Elevators
+    • 1 Staircase
+    • 120 Sq Ft Dedicated Car Parking Included
+    • Electrical Substation & Generator Backup
+    • Deep Tube Well (Submersible Water Supply)
+    • Metered Gas Connection
+    • 24/7 CCTV Surveillance
+    • Round-the-Clock Security Guard
+    • Rooftop Mosque
+    • Spacious Community Hall
+    • Children's Playground
+    • Price: BDT 7,500,000 (75 Lakh)
+    `,
+
+      galleryImages: [
+        "",
+        "",
+        "",
+        ""
+      ],
+
+      videoUrl: "https://youtu.be/URVEdy6TvDg?si=_ZHyopTpGCHdKGvP"
+    }
+  },
+  {
+    id: 16,
+    name: "Apartment Land Share Project",
+    category: "Land-Share",
+    location: "Banasree",
+    price: "2400000",
+    size: "1350",
+    image: "",
+
+    moreDetails: {
+      FullLocation:
+        "📍 Trimohoni, Road No. 5, East Banasree, Adjacent to Banasree G Block, Beside Trimohoni Bus Stand & Liberty School, Dhaka.",
+
+      FullDetails: `
+    • Apartment Land Share Investment Project
+    • Share Size: 1,350 Sq Ft
+    • Planned Apartment Size: 1,550 Sq Ft
+    • Opportunity to Own an Apartment at Approximately 40% Lower Initial Cost
+    • B+G+11 Residential Building
+    • Built on 20 Katha of Land
+    • Total Apartments: 88 Units
+    • 8 Apartments Per Floor
+    • 3 Spacious Bedrooms
+    • 3 Modern Bathrooms
+    • 3 Balconies
+    • Spacious Drawing Room
+    • Separate Dining Area
+    • Well-Planned Kitchen
+    • 4 High-Speed Elevators
+    • 2 Staircases
+    • Dedicated Car Parking for All Owners
+    • Children's Play Area
+    • Community Hall
+    • Mosque
+    • Uninterrupted Electricity Supply
+    • Water Supply & Central Gas System
+    • 24/7 CCTV Surveillance
+    • Round-the-Clock Security Guard
+    • Freedom to Choose Your Preferred Apartment
+    • Share Price: BDT 2,400,000 (24 Lakh)
+    • Construction Cost Payable in Easy Installments Over 3 Years
+    `,
+
+      galleryImages: [
+        "",
+        "",
+        "",
+        ""
+      ],
+
+      videoUrl: "https://youtu.be/N4zBwBe5QM4?si=n2mYKAPRQ7jWZTh3"
+    }
+  },
+  {
+    id: 17,
+    name: "Luxury South-Facing Interior Apartment",
+    category: "Resale-Flat",
+    location: "Nandipara",
+    price: "13000000",
+    size: "2100",
+    image: "",
+
+    moreDetails: {
+      FullLocation:
+        "📍 Road No. 2, Nandipara, Khilgaon, Dhaka.",
+
+      FullDetails: `
+    • Apartment Size: 2,100 Sq Ft
+    • Fully Interior-Designed Ready Apartment
+    • Located on the 5th Floor
+    • South-Facing Unit
+    • 4 Spacious Bedrooms
+    • 4 Modern Bathrooms
+    • 4 Balconies with Excellent Natural Light & Ventilation
+    • Expansive Drawing & Dining Area
+    • Modern Family Kitchen
+    • Dedicated Car Parking Available
+    • Bright & Airy Layout with Excellent Cross Ventilation
+    • Ideal for Large Families Seeking Premium Living
+    • Selling Price: BDT 13,000,000 (1 Crore 30 Lakh)
+    • Price is Fixed
+    `,
+
+      galleryImages: [
+        "",
+        "",
+        "",
+        ""
+      ],
+
+      videoUrl: "https://youtu.be/jVryh4zc05A?si=ImhlEmP0kfD3HAC7"
+    }
+  },
+
+  {
+    id: 18,
+    name: "Premium East-Facing Ready Apartment",
+    category: "Ready-Flat",
+    location: "Dhanmondi",
+    price: "8000000",
+    size: "1100",
+    image: "",
+
+    moreDetails: {
+      FullLocation:
+        "📍 Kathal Bagan Bazar, Dhanmondi Kalabagan, Opposite Bashundhara City Shopping Complex, Dhaka.",
+
+      FullDetails: `
+    • Apartment Size: 1,100+ Sq Ft
+    • 100% Ready-to-Move Apartment
+    • Available on the 6th, 7th & 8th Floors
+    • East-Facing Apartment
+    • G+8 Residential Building
+    • Built on 4.15 Katha of Land
+    • 3 Apartments Per Floor
+    • 3 Spacious Bedrooms
+    • 3 Modern Bathrooms
+    • 2 Balconies
+    • Spacious Drawing Room
+    • Separate Dining Area
+    • Well-Planned Kitchen
+    • Titas Gas Connection
+    • 1 High-Speed Elevator
+    • 1 Staircase
+    • Dedicated Car Parking Available
+    • Building Handover: 2024
+    • 24/7 CCTV Surveillance
+    • Round-the-Clock Security Guard
+    • Generator Backup
+    • Uninterrupted Electricity & Water Supply
+    • Monthly Rental Potential: Approximately BDT 32,000
+    • Price Per Sq Ft: BDT 7,300
+    • Apartment Price: BDT 8,000,000 (80 Lakh)
+    • Optional Car Parking: BDT 500,000 (5 Lakh)
+    `,
+
+      galleryImages: [
+        "",
+        "",
+        "",
+        ""
+      ],
+
+      videoUrl: "https://youtu.be/FuWrF9I-1Nw?si=fpelum4dPFhl-lLR"
+    }
+  },
+  {
+    id: 19,
+    name: "Premium South-Facing Family Apartment",
+    category: "Ready-Flat",
+    location: "Meradia",
+    price: "8500000",
+    size: "1450",
+    image: "",
+
+    moreDetails: {
+      FullLocation:
+        "📍 Kazibari Residential Society, South of Meradia Bazar, Rampura, Dhaka.",
+
+      FullDetails: `
+    • Apartment Size: 1,450 Sq Ft
+    • 100% Ready-to-Move Apartment
+    • South-Facing Unit
+    • Available Apartments: 4
+    • G+7 Residential Building
+    • Built on 2.5 Katha of Land
+    • Single Apartment Per Floor
+    • 3 Spacious Bedrooms
+    • 3 Modern Washrooms
+    • 3 Balconies
+    • Spacious Drawing Room
+    • Separate Dining Area
+    • Well-Planned Kitchen
+    • 1 High-Speed Elevator
+    • 1 Staircase
+    • Spacious Open Rooftop
+    • 24/7 CCTV Surveillance
+    • Round-the-Clock Security Guard
+    • Additional Security Provided by the Residential Society
+    • Uninterrupted Water & Electricity Supply
+    • 2nd Floor Price: BDT 8,500,000 (85 Lakh)
+    • Other Available Floors: BDT 12,000,000 (1 Crore 20 Lakh)
+    `,
+
+      galleryImages: [
+        "",
+        "",
+        "",
+        ""
+      ],
+
+      videoUrl: "https://youtu.be/PLui5JBfJvg?si=s2SjglBEYptuhrdf"
+    }
+  },
+  {
+    id: 20,
+    name: "Premium Soundproof Ready Apartment",
+    category: "Resale-Flat",
+    location: "Nandipara",
+    price: "7300000",
+    size: "1440",
+    image: "",
+
+    moreDetails: {
+      FullLocation:
+        "📍 Road No. 7, Nandipara, Near the 60-Foot Main Road, Khilgaon, Dhaka.",
+
+      FullDetails: `
+    • Apartment Size: 1,440 Sq Ft
+    • 100% Ready-to-Move Apartment
+    • Available on the 5th & 6th Floors
+    • Located in a Quiet Residential Zone
+    • Lifetime Natural Light & Cross Ventilation
+    • G+10 Residential Building
+    • Built on 36 Ajuut Angsho of Land
+    • Only 3 Apartments Per Floor
+    • 3 Spacious Bedrooms
+    • 3 Modern Bathrooms
+    • 3 Balconies
+    • Spacious Drawing Room
+    • Separate Dining Area
+    • Well-Planned Kitchen
+    • 1 High-Speed Elevator
+    • 1 Staircase
+    • Dedicated Car Parking Available
+    • Electrical Substation
+    • Generator Backup
+    • Uninterrupted Water & Electricity Supply
+    • 24/7 CCTV Surveillance
+    • Round-the-Clock Security Guard
+    • Soundproof & Dustproof Construction
+    • Total Package Price: BDT 7,300,000 (73 Lakh)
+    • Price Includes Car Parking, Utility Connections & Registration
+    `,
+
+      galleryImages: [
+        "",
+        "",
+        "",
+        ""
+      ],
+
+      videoUrl: "https://youtu.be/MC4QO83FWus?si=jDEvEu3ZW3HsqloT"
+    }
+  },
+
+  {
+    id: 21,
+    name: "Ready Compact Family Apartment",
+    category: "Ready-Flat",
+    location: "Aftabnagar",
+    price: "7000000",
+    size: "1000",
+    image: "",
+
+    moreDetails: {
+      FullLocation:
+        "📍 Block H, Sector 2, Road No. 2, Near Addar Mor, Aftabnagar, Dhaka.",
+
+      FullDetails: `
+    • Apartment Size: 1,000 Sq Ft
+    • 100% Ready-to-Move Apartment
+    • Two Apartments Available on the Same Floor
+    • G+7 Residential Building
+    • Built on 3.5 Katha of Land
+    • Only 2 Apartments Per Floor
+    • 2 Spacious Bedrooms
+    • 2 Modern Bathrooms
+    • 1 Balcony
+    • Comfortable Drawing Room
+    • Separate Dining Area
+    • Well-Planned Kitchen
+    • 1 Staircase
+    • 24/7 CCTV Surveillance
+    • Round-the-Clock Security Guard
+    • Uninterrupted Water & Electricity Supply
+    • Spacious Open Rooftop
+    • One Dedicated Car Parking Available if Both Apartments are Purchased Together
+    • Apartment Price: BDT 7,000,000 (70 Lakh)
+    `,
+
+      galleryImages: [
+        "",
+        "",
+        "",
+        ""
+      ],
+
+      videoUrl: "https://youtu.be/GH0aTFNKboI?si=cHeJ7hxXiAzOE2YO"
+    }
+  },
 
 ];
